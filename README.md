@@ -18,7 +18,7 @@ News stories, geo-tagged and displayed on a map
 - [ ] Working site for Portland, then try to do it for other locations
 
 #### June 06, 2020
-![Page outline view](./img/2020.06.06 Page outline.png)
+![Page outline view](./img/2020.06.06-Page-outline.png)
 
 #### June 07, 2020
-![2020.06.07 Map in map pane.png](./img/2020.06.07 Map in map pane.png)
+![Map in map pane](./img/2020.06.07-Map-in-map-pane.png)
