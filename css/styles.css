@@ -1,9 +1,10 @@
 html, body {
 	height: 100%;
 	margin: 0;
+	padding: 0
 }
 .container {
-	background-color: #ffffdd;
+	background-color: #ffffdd /*yellow*/;
 	height: 100%;
 }
 
@@ -16,12 +17,12 @@ html, body {
 }
 
 .map {
-	background-color: #a0ffe6;
+	background-color: #a0ffe6 /*blue*/ ;
 	flex: 66%;
 }
 
 .stories {
-	background-color: #ffd5e5;
+	background-color: #ffd5e5 /*red*/;
 	flex: 33%;
 }
 
@@ -29,3 +30,4 @@ html, body {
 	border-style: solid;
 	height: 200px;
 }
+
