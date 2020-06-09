@@ -9,7 +9,7 @@ var map = new mapboxgl.Map({
 });
 
 // Load stories.geojson file from the data directory
-fetch('../data/stories.geojson')
+fetch('/data/stories.geojson')
   .then(response => response.json())
   .then(data => console.log(data));
   // .then(data => console.log(data.features[0]));
