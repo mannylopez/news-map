@@ -1,33 +1,32 @@
 html, body {
-	height: 100%;
-	margin: 0;
-	padding: 0
+  height: 100%;
+  margin: 0;
+  padding: 0
 }
 .container {
-	background-color: #ffffdd /*yellow*/;
-	height: 100%;
+  background-color: #ffffdd /*yellow*/;
+  height: 100%;
 }
 
 .row {
-	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	width: 100%;
-	height: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
 }
 
 .map {
-	background-color: #a0ffe6 /*blue*/ ;
-	flex: 66%;
+  background-color: #a0ffe6 /*blue*/ ;
+  flex: 66%;
 }
 
 .stories {
-	background-color: #ffd5e5 /*red*/;
-	flex: 33%;
+  background-color: #ffd5e5 /*red*/;
+  flex: 33%;
 }
 
 .story {
-	border-style: solid;
-	height: 200px;
+  border-style: solid;
+  height: 200px;
 }
-
