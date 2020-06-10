@@ -17,6 +17,7 @@ News stories, geo-tagged and displayed on a map
 - [ ] Figure out how to get news stories and add location
 - [ ] Figure out how to do this automatically every day, from different news sources
 - [ ] Working site for Portland, then try to do it for other locations
+- [ ] Tests
 
 #### June 06, 2020
 ![Page outline view](./img/2020.06.06-Page-outline.png)

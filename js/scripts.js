@@ -8,8 +8,12 @@ var map = new mapboxgl.Map({
   zoom: 9 // starting zoom
 });
 
+let STORIES = '';
 // Load stories.geojson file from the data directory
 fetch('/news-map/data/stories.geojson')
   .then(response => response.json())
-  .then(data => console.log(data));
-  // .then(data => console.log(data.features[0]));
+  .then(data => STORIES = data)
+  .then(() => console.log(STORIES));
+  
+  // console logs the coordinates of the first item in the object
+  // .then(() => console.log(STORIES.features[0].geometry.coordinates));
