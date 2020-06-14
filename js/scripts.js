@@ -12,15 +12,16 @@ var map = new mapboxgl.Map({
 function createStory(title, author, publishDate, blurb, source, link) {
   let storyPane = document.getElementById('stories');
 
-  // Create elements and set with data from the parameters
+  // Create elements and populate with data from the parameters
   let div = document.createElement('div');
   div.setAttribute('class', 'story');
 
   let storyLink = document.createElement("a");
   storyLink.setAttribute('href', link);
+  storyLink.setAttribute('target', "_blank");
   storyLink.textContent = title;
 
-  let storyTitle = document.createElement("h4");
+  let storyTitle = document.createElement("h3");
 
   let storyAuthor = document.createElement("p");
   storyAuthor.textContent = "by " + author;

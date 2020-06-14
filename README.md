@@ -10,9 +10,11 @@ News stories, geo-tagged and displayed on a map
 - [x] Add dummy stories
 - [x] Add JavaScript object to project
 - [x] Add pins to map
-- [ ] Connect dummy stories to pins
-- [ ] Click on pin and highlight the story
-- [ ] Click the story and center the map on the pin
+- [x] Add stories to page
+- [ ] Design story card
+- [ ] Connect stories to pins
+    - [ ] Click on pin and highlight the story
+    - [ ] Click the story and center the map on the pin
 - [ ] Figure out how to get news stories and add location
 - [ ] Figure out how to do this automatically every day, from different news sources
 - [ ] Working site for Portland, then try to do it for other locations
