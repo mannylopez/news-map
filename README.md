@@ -32,3 +32,7 @@ Created a CSV with 10 stories, converted it to GeoJSON, and used Fetch to read i
 #### June 12, 2020
 Ended up not defining a binding. Used `forEach` to add the coordinates to the map.
 ![2020.06.12-Markers-on-map](./img/2020.06.12-Markers-on-map.png)
+
+#### June 13, 2020
+The stories and markers now populate from the JSON file. The `createStory` function first adds a marker to the map based off of the coordinates then creates a div element and sets the values for the story fields. Last, it adds the story to the side panel.
+![2020.06.13-Stories](./img/2020.06.13-Stories.png)
