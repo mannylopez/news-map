@@ -25,7 +25,7 @@ fetch('/news-map/data/stories.geojson')
     // Add stories to stories pane
     // Get value from geojson
 
-    // for each loop to get title from geoJSON and add it to div
+    // for each loop to get title and author from geoJSON and add it to div
     data.features.forEach(function(metadata) {
       let title = metadata.properties.title
       let author = metadata.properties.author
@@ -51,9 +51,16 @@ fetch('/news-map/data/stories.geojson')
       
       // Add in the title parameter in the function to the heading 4 tag
       h4.textContent = title
+
+      // create p tag
+      let p = document.createElement("p")
+
+      // Add in the author parameter in the function to the p tag
+      p.textContent = "by " + author
       
       // singleStory.appendChild(h1)
       storyPane.appendChild(div).appendChild(h4)
+      storyPane.appendChild(div).appendChild(p)
     }
 
     console.log("End of promise block");
