@@ -24,32 +24,37 @@ fetch('/news-map/data/stories.geojson')
     
     // Add stories to stories pane
     // Get value from geojson
-    let text = data.features[0].properties.title
-    
-    // // select the first div with id="#story1"
-    // let title = document.querySelector('#story1');
-    
-    // // Add it to story div
-    // title.innerHTML = text
-  
+
+    // for each loop to get title from geoJSON and add it to div
+    data.features.forEach(function(metadata) {
+      let title = metadata.properties.title
+      let author = metadata.properties.author
+      createStory(title, author)
+
+    });
 
     // forEach loop
 
-    // 0. Find the 'stories' div
-    let storyPane = document.querySelector('.stories')
-    console.log(storyPane)
-    // 1. Create a new div
-    let div = document.createElement('div')
-    div.textContent = text
-    // 2. Add class="story"
-    // 3. Add to class="stories" div
-    div.setAttribute('class', 'story')
-    // 4. Get title, author, link, source, ...
-    // 5. Add that info to div
-    // 6. Add div to index.html
-    // document.body.container.appendChild(div)
-    console.log(div)
-    storyPane.appendChild(div)
+    function createStory(title, author) {
+      
+      // Find the 'stories' div
+      let storyPane = document.querySelector('.stories')
+      
+      //Create a new div
+      let div = document.createElement('div')
+      
+      //Add class="story", Add to class="stories" div
+      div.setAttribute('class', 'story')
+
+      // Create h4 tag
+      let h4 = document.createElement("h4")
+      
+      // Add in the title parameter in the function to the heading 4 tag
+      h4.textContent = title
+      
+      // singleStory.appendChild(h1)
+      storyPane.appendChild(div).appendChild(h4)
+    }
 
     console.log("End of promise block");
   })
