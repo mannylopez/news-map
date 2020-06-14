@@ -1,175 +1,175 @@
 {
- "type": "FeatureCollection",
- "features": [
+   "type": "FeatureCollection",
+   "features": [
   {
     "type": "Feature",
     "geometry": {
-     "type": "Point",
-     "coordinates":  [ -122.678295,45.519745 ]
-   },
-   "properties": {
+       "type": "Point",
+       "coordinates":  [ -122.678295,45.519745 ]
+    },
+    "properties": {
     "publish_date":"6/6/20",
     "author":"Latisha Jensen",
     "title":"A WW Delivery Driver Says Police Detained Him as He Restocked Newspaper Boxes in Downtown Portland",
-    "blurb":"ÒStop right there, get on your knees!Ó Greg Mitchell recalls the officer saying. ÒPut your hands up!Ó",
+    "blurb":"“Stop right there, get on your knees!” Greg Mitchell recalls the officer saying. “Put your hands up!”",
     "source":"Willamette Week",
     "link":"https://www.wweek.com/news/2020/06/06/ww-delivery-driver-says-police-detained-him-while-he-was-restocking-newspaper-boxes-in-downtown-portland/",
     "location_name":"",
     "address":"Southwest 6th Avenue and Alder Street"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -122.677672,45.515394 ]
+    },
+    "properties": {
+    "publish_date":"6/7/20",
+    "author":"Rachel Monahan and Aaron Mesh",
+    "title":"Portland Reporter Pens First-Person Account of Being Pepper-Sprayed While Filming an Arrest",
+    "blurb":"Donovan Farley, a longtime contributor to WW’s Arts & Culture section, says he was filming an arrest when he was pepper-sprayed in the eyes.",
+    "source":"Willamette Week",
+    "link":"https://www.wweek.com/news/city/2020/06/07/portland-reporter-pens-first-person-account-of-being-pepper-sprayed-while-filming-an-arrest/",
+    "location_name":"Chapman Square",
+    "address":"Chapman Square"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -122.622934,45.508236 ]
+    },
+    "properties": {
+    "publish_date":"6/8/20",
+    "author":"Michael Russell",
+    "title":"Another top Portland brunch restaurant calls it quits",
+    "blurb":"Trinket, the cozy César E. Chávez Boulevard restaurant known for its veggie hash and duck eggs Benedict, will close permanently, owner Gina Helvie announced in an Instagram video Saturday.",
+    "source":"The Oregonian",
+    "link":"https://www.oregonlive.com/dining/2020/06/trinket-another-top-portland-brunch-restaurant-calls-it-quits.html",
+    "location_name":"Trinket",
+    "address":"2035 SE Cesar Estrada Chavez Blvd, Portland, OR 97214"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -122.681462,45.518683 ]
+    },
+    "properties": {
+    "publish_date":"6/3/20",
+    "author":"Nigel Jaquiss",
+    "title":"City of Portland Drops Opposition to More Frequent Free Meal Distribution in City Parks",
+    "blurb":"The group Free Hot Soup claims victory in its legal battle to serve the hungry.",
+    "source":"Willamette Week",
+    "link":"https://www.wweek.com/news/2020/06/03/city-of-portland-drops-opposition-to-more-frequent-free-meal-distribution-in-city-parks/",
+    "location_name":"Director Park",
+    "address":"815 SW Park Ave, Portland, OR 97205"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -122.844722,45.464984 ]
+    },
+    "properties": {
+    "publish_date":"6/8/20",
+    "author":"Meerah Powell",
+    "title":"Beauty And Aesthetics Workers Navigate Returning To Work Amid Coronavirus",
+    "blurb":"Ceanna Lee is going back to work at her salon, MODA Studios, in Beaverton.",
+    "source":"OPB",
+    "link":"https://www.opb.org/news/article/hair-salon-tattoo-spa-beauty-coronavirus-reopen-portland-oregon/",
+    "location_name":"MODA Studios",
+    "address":"16300 SW Hart Rd, Beaverton, OR 97007"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -122.656861,45.547262 ]
+    },
+    "properties": {
+    "publish_date":"6/8/20",
+    "author":"Jonathan Maus",
+    "title":"Four rides to support Black lives",
+    "blurb":"If you’ve been to one of the protests in Portland you’ve seen that the number of people on bikes is growing each night. Now community leaders have planned several bike rides that will amplify and/or spin-off the protests.",
+    "source":"BikePortland",
+    "link":"https://bikeportland.org/2020/06/08/four-rides-to-support-black-lives-316434",
+    "location_name":"Irving Park",
+    "address":"707 NE Fremont St, Portland, OR 97212"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -122.560209,45.431476 ]
+    },
+    "properties": {
+    "publish_date":"6/8/20",
+    "author":"Kristian Foden-Vencil",
+    "title":"People Are Struggling To Mourn Loved Ones Amid Pandemic Regulations",
+    "blurb":"A few weeks into the coronavirus quarantine, Jan Stewart’s younger sister Tammy Stewart started suffering strange symptoms, like she couldn’t breathe. She ended up at Kaiser Sunnyside Hospital in Clackamas with COVID-19.",
+    "source":"OPB",
+    "link":"https://www.opb.org/news/article/funerals-coronavirus-oregon-grief-mental-health/",
+    "location_name":"Kaiser Permanente Sunnyside Medical Center",
+    "address":"10180 SE Sunnyside Rd, Clackamas, OR 97015"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -122.673492,45.567936 ]
+    },
+    "properties": {
+    "publish_date":"6/3/20",
+    "author":"By Rachel Monahan, Tess Riski, and Latisha Jensen",
+    "title":"Protests and Riots Fill the Streets of Portland. Four Black Leaders Are Trying to Bring Meaning to the Anguish.",
+    "blurb":"What makes this moment so perilous and important is, we simply don’t know how long it will last or what it will mean. So we asked four black leaders at the center of the struggle.",
+    "source":"Willamette Week",
+    "link":"https://www.wweek.com/news/2020/06/03/protests-and-riots-fill-the-streets-of-portland-four-black-leaders-are-trying-to-bring-meaning-to-the-anguish/",
+    "location_name":"Peninsula Park",
+    "address":"700 N Rosa Parks Way, Portland, OR 97217"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -122.706755,45.519387 ]
+    },
+    "properties": {
+    "publish_date":"6/8/20",
+    "author":"Shannon Gormley",
+    "title":"Portland’s Japanese Garden Will Reopen This Week",
+    "blurb":"One of Portland's biggest tourist attractions, the Japanese Garden had to lay off 90 percent of its employees when it shut down in March.",
+    "source":"Willamette Week",
+    "link":"https://www.wweek.com/culture/2020/06/08/portlands-japanese-garden-will-reopen-this-week/",
+    "location_name":"Japanese Garden",
+    "address":"611 SW Kingston Ave, Portland, OR 97205"
+    }
+  },
+  {
+    "type": "Feature",
+    "geometry": {
+       "type": "Point",
+       "coordinates":  [ -122.670808,45.522655 ]
+    },
+    "properties": {
+    "publish_date":"6/8/20",
+    "author":"WW Staff",
+    "title":"Portland-Based Mercy Corps Is Monitoring COVID-19 Infections in Developing Nations. But Good Data Is Hard to Come By.",
+    "blurb":"Interim CEO Beth deHamel is concerned about the impact of the virus in places like Central America, Afghanistan and refugee camps.",
+    "source":"Willamette Week",
+    "link":"https://www.wweek.com/news/2020/06/08/portland-based-mercy-corps-is-monitoring-covid-19-infections-in-developing-nations-but-getting-data-is-not-easy/",
+    "location_name":"Mercy Corps",
+    "address":"45 SW Ankeny St, Portland, OR 97204"
+    }
   }
-},
-{
-  "type": "Feature",
-  "geometry": {
-   "type": "Point",
-   "coordinates":  [ -122.677672,45.515394 ]
- },
- "properties": {
-  "publish_date":"6/7/20",
-  "author":"Rachel Monahan and Aaron Mesh",
-  "title":"Portland Reporter Pens First-Person Account of Being Pepper-Sprayed While Filming an Arrest",
-  "blurb":"Donovan Farley, a longtime contributor to WWÕs Arts & Culture section, says he was filming an arrest when he was pepper-sprayed in the eyes.",
-  "source":"Willamette Week",
-  "link":"https://www.wweek.com/news/city/2020/06/07/portland-reporter-pens-first-person-account-of-being-pepper-sprayed-while-filming-an-arrest/",
-  "location_name":"Chapman Square",
-  "address":"Chapman Square"
-}
-},
-{
-  "type": "Feature",
-  "geometry": {
-   "type": "Point",
-   "coordinates":  [ -122.622934,45.508236 ]
- },
- "properties": {
-  "publish_date":"6/8/20",
-  "author":"Michael Russell",
-  "title":"Another top Portland brunch restaurant calls it quits",
-  "blurb":"Trinket, the cozy CŽsar E. Ch‡vez Boulevard restaurant known for its veggie hash and duck eggs Benedict, will close permanently, owner Gina Helvie announced in an Instagram video Saturday.",
-  "source":"The Oregonian",
-  "link":"https://www.oregonlive.com/dining/2020/06/trinket-another-top-portland-brunch-restaurant-calls-it-quits.html",
-  "location_name":"Trinket",
-  "address":"2035 SE Cesar Estrada Chavez Blvd, Portland, OR 97214"
-}
-},
-{
-  "type": "Feature",
-  "geometry": {
-   "type": "Point",
-   "coordinates":  [ -122.681462,45.518683 ]
- },
- "properties": {
-  "publish_date":"6/3/20",
-  "author":"Nigel Jaquiss",
-  "title":"City of Portland Drops Opposition to More Frequent Free Meal Distribution in City Parks",
-  "blurb":"The group Free Hot Soup claims victory in its legal battle to serve the hungry.",
-  "source":"Willamette Week",
-  "link":"https://www.wweek.com/news/2020/06/03/city-of-portland-drops-opposition-to-more-frequent-free-meal-distribution-in-city-parks/",
-  "location_name":"Director Park",
-  "address":"815 SW Park Ave, Portland, OR 97205"
-}
-},
-{
-  "type": "Feature",
-  "geometry": {
-   "type": "Point",
-   "coordinates":  [ -122.844722,45.464984 ]
- },
- "properties": {
-  "publish_date":"6/8/20",
-  "author":"Meerah Powell",
-  "title":"Beauty And Aesthetics Workers Navigate Returning To Work Amid Coronavirus",
-  "blurb":"Ceanna Lee is going back to work at her salon, MODA Studios, in Beaverton.",
-  "source":"OPB",
-  "link":"https://www.opb.org/news/article/hair-salon-tattoo-spa-beauty-coronavirus-reopen-portland-oregon/",
-  "location_name":"MODA Studios",
-  "address":"16300 SW Hart Rd, Beaverton, OR 97007"
-}
-},
-{
-  "type": "Feature",
-  "geometry": {
-   "type": "Point",
-   "coordinates":  [ -122.656861,45.547262 ]
- },
- "properties": {
-  "publish_date":"6/8/20",
-  "author":"Jonathan Maus",
-  "title":"Four rides to support Black lives",
-  "blurb":"If youÕve been to one of the protests in Portland youÕve seen that the number of people on bikes is growing each night. Now community leaders have planned several bike rides that will amplify and/or spin-off the protests.",
-  "source":"BikePortland",
-  "link":"https://bikeportland.org/2020/06/08/four-rides-to-support-black-lives-316434",
-  "location_name":"Irving Park",
-  "address":"707 NE Fremont St, Portland, OR 97212"
-}
-},
-{
-  "type": "Feature",
-  "geometry": {
-   "type": "Point",
-   "coordinates":  [ -122.560209,45.431476 ]
- },
- "properties": {
-  "publish_date":"6/8/20",
-  "author":"Kristian Foden-Vencil",
-  "title":"People Are Struggling To Mourn Loved Ones Amid Pandemic Regulations",
-  "blurb":"A few weeks into the coronavirus quarantine, Jan StewartÕs younger sister Tammy Stewart started suffering strange symptoms, like she couldnÕt breathe. She ended up at Kaiser Sunnyside Hospital in Clackamas with COVID-19.",
-  "source":"OPB",
-  "link":"https://www.opb.org/news/article/funerals-coronavirus-oregon-grief-mental-health/",
-  "location_name":"Kaiser Permanente Sunnyside Medical Center",
-  "address":"10180 SE Sunnyside Rd, Clackamas, OR 97015"
-}
-},
-{
-  "type": "Feature",
-  "geometry": {
-   "type": "Point",
-   "coordinates":  [ -122.673492,45.567936 ]
- },
- "properties": {
-  "publish_date":"6/3/20",
-  "author":"By Rachel Monahan, Tess Riski, and Latisha Jensen",
-  "title":"Protests and Riots Fill the Streets of Portland. Four Black Leaders Are Trying to Bring Meaning to the Anguish.",
-  "blurb":"What makes this moment so perilous and important is, we simply donÕt know how long it will last or what it will mean. So we asked four black leaders at the center of the struggle.",
-  "source":"Willamette Week",
-  "link":"https://www.wweek.com/news/2020/06/03/protests-and-riots-fill-the-streets-of-portland-four-black-leaders-are-trying-to-bring-meaning-to-the-anguish/",
-  "location_name":"Peninsula Park",
-  "address":"700 N Rosa Parks Way, Portland, OR 97217"
-}
-},
-{
-  "type": "Feature",
-  "geometry": {
-   "type": "Point",
-   "coordinates":  [ -122.706755,45.519387 ]
- },
- "properties": {
-  "publish_date":"6/8/20",
-  "author":"Shannon Gormley",
-  "title":"PortlandÕs Japanese Garden Will Reopen This Week",
-  "blurb":"One of Portland's biggest tourist attractions, the Japanese Garden had to lay off 90 percent of its employees when it shut down in March.",
-  "source":"Willamette Week",
-  "link":"https://www.wweek.com/culture/2020/06/08/portlands-japanese-garden-will-reopen-this-week/",
-  "location_name":"Japanese Garden",
-  "address":"611 SW Kingston Ave, Portland, OR 97205"
-}
-},
-{
-  "type": "Feature",
-  "geometry": {
-   "type": "Point",
-   "coordinates":  [ -122.670808,45.522655 ]
- },
- "properties": {
-  "publish_date":"6/8/20",
-  "author":"WW Staff",
-  "title":"Portland-Based Mercy Corps Is Monitoring COVID-19 Infections in Developing Nations. But Good Data Is Hard to Come By.",
-  "blurb":"Interim CEO Beth deHamel is concerned about the impact of the virus in places like Central America, Afghanistan and refugee camps.",
-  "source":"Willamette Week",
-  "link":"https://www.wweek.com/news/2020/06/08/portland-based-mercy-corps-is-monitoring-covid-19-infections-in-developing-nations-but-getting-data-is-not-easy/",
-  "location_name":"Mercy Corps",
-  "address":"45 SW Ankeny St, Portland, OR 97204"
-}
-}
 ]
 }

@@ -8,60 +8,59 @@ var map = new mapboxgl.Map({
   zoom: 10 // starting zoom
 });
 
+// Takes data in, creates a story card, and inserts it into the stories div
+function createStory(title, author, publishDate, blurb, source, link) {
+  let storyPane = document.getElementById('stories');
+
+  // Create elements and set with data from the parameters
+  let div = document.createElement('div');
+  div.setAttribute('class', 'story');
+
+  let storyLink = document.createElement("a");
+  storyLink.setAttribute('href', link);
+  storyLink.textContent = title;
+
+  let storyTitle = document.createElement("h4");
+
+  let storyAuthor = document.createElement("p");
+  storyAuthor.textContent = "by " + author;
+
+  let storyDate = document.createElement("p");
+  storyDate.textContent = publishDate;
+
+  let storyBlurb = document.createElement("p");
+  storyBlurb.textContent = blurb;
+
+  // Append the elements to the story div
+  storyPane.appendChild(div).appendChild(storyTitle).appendChild(storyLink);
+  storyPane.appendChild(div).appendChild(storyBlurb);
+  storyPane.appendChild(div).appendChild(storyAuthor);
+  storyPane.appendChild(div).appendChild(storyDate);
+}
+
 // Load stories.geojson file from the data directory
 fetch('/news-map/data/stories.geojson')
   // Turn the fetch response into json
   .then(response => response.json())
 
-  // Get the longitude and latitude values from the json, set it to a marker, and add it to the map
+  // From the json, create a marker based on the coordinates, place it on the map, and call createStory()
+  // create the story, place it in the stories pane
   .then(function(data) {
-
-    data.features.forEach(function(marker) {
-      new mapboxgl.Marker()
-        .setLngLat(marker.geometry.coordinates)
-        .addTo(map);
-    });
-    
-    // Add stories to stories pane
-    // Get value from geojson
-
-    // for each loop to get title and author from geoJSON and add it to div
     data.features.forEach(function(metadata) {
-      let title = metadata.properties.title
-      let author = metadata.properties.author
-      createStory(title, author)
+      
+      new mapboxgl.Marker()
+        .setLngLat(metadata.geometry.coordinates)
+        .addTo(map);
+      
+      let title = metadata.properties.title;
+      let author = metadata.properties.author;
+      let publishDate = metadata.properties.publish_date;
+      let blurb = metadata.properties.blurb;
+      let source = metadata.properties.source;
+      let link = metadata.properties.link;
 
+      createStory(title, author, publishDate, blurb, source, link);
     });
-
-    // forEach loop
-
-    function createStory(title, author) {
-      
-      // Find the 'stories' div
-      let storyPane = document.querySelector('.stories')
-      
-      //Create a new div
-      let div = document.createElement('div')
-      
-      //Add class="story", Add to class="stories" div
-      div.setAttribute('class', 'story')
-
-      // Create h4 tag
-      let h4 = document.createElement("h4")
-      
-      // Add in the title parameter in the function to the heading 4 tag
-      h4.textContent = title
-
-      // create p tag
-      let p = document.createElement("p")
-
-      // Add in the author parameter in the function to the p tag
-      p.textContent = "by " + author
-      
-      // singleStory.appendChild(h1)
-      storyPane.appendChild(div).appendChild(h4)
-      storyPane.appendChild(div).appendChild(p)
-    }
 
     console.log("End of promise block");
   })
