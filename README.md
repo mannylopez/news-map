@@ -11,7 +11,7 @@ News stories, geo-tagged and displayed on a map
 - [x] Add JavaScript object to project
 - [x] Add pins to map
 - [x] Add stories to page
-- [ ] Design story card
+- [x] Design story card
 - [ ] Connect stories to pins
     - [ ] Click on pin and highlight the story
     - [ ] Click the story and center the map on the pin
@@ -19,6 +19,7 @@ News stories, geo-tagged and displayed on a map
 - [ ] Figure out how to do this automatically every day, from different news sources
 - [ ] Working site for Portland, then try to do it for other locations
 - [ ] Add geocoder to map
+- [ ] Mobile friendly design
 - [ ] Tests
 
 #### June 06, 2020
@@ -38,3 +39,7 @@ Ended up not defining a binding. Used `forEach` to add the coordinates to the ma
 #### June 13, 2020
 The stories and markers now populate from the JSON file. The `createStory` function first adds a marker to the map based off of the coordinates then creates a div element and sets the values for the story fields. Last, it adds the story to the side panel.
 ![2020.06.13-Stories](./img/2020.06.13-Stories.png)
+
+#### June 14, 2020
+Updated the design of the story cards and made it so that you can scroll through them. Cleaned up the CSS file.
+![2020.06.14-Pretty-Story](./img/2020.06.14-Pretty-Story.png)
