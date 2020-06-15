@@ -23,20 +23,17 @@ function createStory(title, author, publishDate, blurb, source, link) {
 
   let storyTitle = document.createElement("h3");
 
-  let storyAuthor = document.createElement("p");
-  storyAuthor.textContent = "by " + author;
-
-  let storyDate = document.createElement("p");
-  storyDate.textContent = publishDate;
+  let storyAuthorAndDate = document.createElement("p");
+  storyAuthorAndDate.textContent = "by " + author + " on " + publishDate;
 
   let storyBlurb = document.createElement("p");
+  storyBlurb.setAttribute('class', 'blurb');
   storyBlurb.textContent = blurb;
 
   // Append the elements to the story div
   storyPane.appendChild(div).appendChild(storyTitle).appendChild(storyLink);
   storyPane.appendChild(div).appendChild(storyBlurb);
-  storyPane.appendChild(div).appendChild(storyAuthor);
-  storyPane.appendChild(div).appendChild(storyDate);
+  storyPane.appendChild(div).appendChild(storyAuthorAndDate);
 }
 
 // Load stories.geojson file from the data directory
