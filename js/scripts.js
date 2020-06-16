@@ -9,12 +9,29 @@ var map = new mapboxgl.Map({
 });
 
 // Takes data in, creates a story card, and inserts it into the stories div
-function createStory(title, author, publishDate, blurb, source, link) {
+function createStory(metadata) {
+
+  let marker = new mapboxgl.Marker()
+        .setLngLat(metadata.geometry.coordinates)
+        // .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
+        // .setHTML('<h3>' + metadata.properties.title + '</h3><p>' + metadata.properties.blurb + '</p>'))
+        .addTo(map);
+
+
+  let title = metadata.properties.title;
+  let author = metadata.properties.author;
+  let publishDate = metadata.properties.publish_date;
+  let blurb = metadata.properties.blurb;
+  let source = metadata.properties.source;
+  let link = metadata.properties.link;
+
+
   let storyPane = document.getElementById('stories');
 
   // Create elements and populate with data from the parameters
   let div = document.createElement('div');
-  div.setAttribute('class', 'story');
+  div.setAttribute('class', "story");
+  div.setAttribute('id', title);
 
   let storyLink = document.createElement("a");
   storyLink.setAttribute('href', link);
@@ -38,7 +55,13 @@ function createStory(title, author, publishDate, blurb, source, link) {
   storyPane.appendChild(div).appendChild(storyBlurb);
   // storyPane.appendChild(div).appendChild(storyAuthorAndDate);
   storyPane.appendChild(div).appendChild(storySourceAndDate);
+
+  marker.getElement().addEventListener('mouseenter', () => {
+        let storyFocus = document.getElementById(title);
+        storyFocus.setAttribute('id', 'story-focus');
+      });
 }
+
 
 // Load stories.geojson file from the data directory
 fetch('/news-map/data/stories.geojson')
@@ -47,29 +70,35 @@ fetch('/news-map/data/stories.geojson')
   // From the json, create a marker based on the coordinates, place it on the map, and call createStory()
   // create the story, place it in the stories pane
   .then(function(data) {
-    map.on('load', function() {
-      map.addSource('places', {
-        'type': 'geojson',
-        'data': data
-      }) 
-    })
-  
-    
+
 
     data.features.forEach(function(metadata) {
+
+      // let marker = new mapboxgl.Marker()
+      //   .setLngLat(metadata.geometry.coordinates)
+      //   // .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
+      //   // .setHTML('<h3>' + metadata.properties.title + '</h3><p>' + metadata.properties.blurb + '</p>'))
+      //   .addTo(map);
+   
+      // marker.setAttribute('id', )
+
       
-      new mapboxgl.Marker()
-        .setLngLat(metadata.geometry.coordinates)
-        .addTo(map);
+      // let title = metadata.properties.title;
+      // let author = metadata.properties.author;
+      // let publishDate = metadata.properties.publish_date;
+      // let blurb = metadata.properties.blurb;
+      // let source = metadata.properties.source;
+      // let link = metadata.properties.link;
+
       
-      let title = metadata.properties.title;
-      let author = metadata.properties.author;
-      let publishDate = metadata.properties.publish_date;
-      let blurb = metadata.properties.blurb;
-      let source = metadata.properties.source;
-      let link = metadata.properties.link;
-      
-      createStory(title, author, publishDate, blurb, source, link);
+      createStory(metadata);
+
+      // marker.getElement().addEventListener('click', () => {
+      //   let storyPane = document.getElementById('story');
+      //   storyPane.setAttribute('class', 'story-focus');
+      // });
+
+
     });
     console.log("End of promise block");
   })
