@@ -57,9 +57,14 @@ function createStory(metadata) {
   storyPane.appendChild(div).appendChild(storySourceAndDate);
 
   marker.getElement().addEventListener('mouseenter', () => {
-        let storyFocus = document.getElementById(title);
-        storyFocus.setAttribute('id', 'story-focus');
-      });
+    let storyFocus = document.getElementById(title);
+    storyFocus.setAttribute('id', 'story-focus');
+  });
+
+  marker.getElement().addEventListener('mouseleave', () => {
+    let storyFocus = document.getElementById('story-focus');
+    storyFocus.setAttribute('id', title);
+  });
 }
 
 
