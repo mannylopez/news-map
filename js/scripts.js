@@ -23,8 +23,11 @@ function createStory(title, author, publishDate, blurb, source, link) {
 
   let storyTitle = document.createElement("h3");
 
-  let storyAuthorAndDate = document.createElement("p");
-  storyAuthorAndDate.textContent = "by " + author + " on " + publishDate;
+  // let storyAuthorAndDate = document.createElement("p");
+  // storyAuthorAndDate.textContent = "by " + author + " on " + publishDate;
+
+  let storySourceAndDate = document.createElement("p");
+  storySourceAndDate.textContent = source + " • " + publishDate;
 
   let storyBlurb = document.createElement("p");
   storyBlurb.setAttribute('class', 'blurb');
@@ -33,17 +36,26 @@ function createStory(title, author, publishDate, blurb, source, link) {
   // Append the elements to the story div
   storyPane.appendChild(div).appendChild(storyTitle).appendChild(storyLink);
   storyPane.appendChild(div).appendChild(storyBlurb);
-  storyPane.appendChild(div).appendChild(storyAuthorAndDate);
+  // storyPane.appendChild(div).appendChild(storyAuthorAndDate);
+  storyPane.appendChild(div).appendChild(storySourceAndDate);
 }
 
 // Load stories.geojson file from the data directory
 fetch('/news-map/data/stories.geojson')
-  // Turn the fetch response into json
   .then(response => response.json())
 
   // From the json, create a marker based on the coordinates, place it on the map, and call createStory()
   // create the story, place it in the stories pane
   .then(function(data) {
+    map.on('load', function() {
+      map.addSource('places', {
+        'type': 'geojson',
+        'data': data
+      }) 
+    })
+  
+    
+
     data.features.forEach(function(metadata) {
       
       new mapboxgl.Marker()
@@ -56,9 +68,8 @@ fetch('/news-map/data/stories.geojson')
       let blurb = metadata.properties.blurb;
       let source = metadata.properties.source;
       let link = metadata.properties.link;
-
+      
       createStory(title, author, publishDate, blurb, source, link);
     });
-
     console.log("End of promise block");
   })
