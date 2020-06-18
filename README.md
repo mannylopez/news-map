@@ -43,3 +43,7 @@ The stories and markers now populate from the JSON file. The `createStory` funct
 #### June 14, 2020
 Updated the design of the story cards and made it so that you can scroll through them. Cleaned up the CSS file.
 ![2020.06.14-Pretty-Story](./img/2020.06.14-Pretty-Story.png)
+
+#### June 15, 2020
+Moved marker create back into the function where each story is being created. Added an event listener for mouse enter and mouse leave so that the story is highlighted.
+![2020.06.15-Hover.png](./img/2020.06.15-Hover.png)

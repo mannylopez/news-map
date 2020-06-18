@@ -34,6 +34,10 @@ html, body {
   background-color: blue;
 }
 
+#story-hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
 .story:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
@@ -49,11 +53,10 @@ a:hover {
 
 .blurb {
   color: #555;
-  cursor: pointer;
 }
 
 .mapboxgl-marker {
-  height: 50px;
+  
 }
 
 .mapboxgl-popup {
@@ -61,6 +64,12 @@ a:hover {
 }
 
 .mapboxgl-popup-content {
-  text-align: center;
-  font-family: 'Open Sans', sans-serif;
+  background: #a0ffe6;
+  border-radius: 13px;
+  box-shadow: 0 6px 4px 0 rgba(0, 0, 0, .2);
+  padding: 10px;
+}
+
+g:hover {
+    fill: black;
 }

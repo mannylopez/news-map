@@ -1,4 +1,3 @@
-// Load mapbox map
 mapboxgl.accessToken = 'pk.eyJ1IjoibWFubnkiLCJhIjoiMzBCNHFQUSJ9.VQQ9ZSW7viFT1yLhLiWLSA';
 
 var map = new mapboxgl.Map({
@@ -8,27 +7,29 @@ var map = new mapboxgl.Map({
   zoom: 10 // starting zoom
 });
 
-// Takes data in, creates a story card, and inserts it into the stories div
-function createStory(metadata) {
+// Takes JSON in, adds a marker to the map, creates a story card, and inserts it into the stories div side panel
+function createStory(data) {
 
+  // Add marker to the map
   let marker = new mapboxgl.Marker()
-        .setLngLat(metadata.geometry.coordinates)
-        // .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
-        // .setHTML('<h3>' + metadata.properties.title + '</h3><p>' + metadata.properties.blurb + '</p>'))
-        .addTo(map);
+    .setLngLat(data.geometry.coordinates)
+    .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
+      .setHTML('<h3>' + data.properties.title + '</h3><p>' + data.properties.source + '</p>'))
+    .addTo(map);
 
+  // ??? How do I add a class name to the popup
+  // let popup = new mapboxgl.Popup()
+  // popup.addClassName('some-class')
 
-  let title = metadata.properties.title;
-  let author = metadata.properties.author;
-  let publishDate = metadata.properties.publish_date;
-  let blurb = metadata.properties.blurb;
-  let source = metadata.properties.source;
-  let link = metadata.properties.link;
+// Create a story card
+  let title = data.properties.title;
+  let author = data.properties.author;
+  let publishDate = data.properties.publish_date;
+  let blurb = data.properties.blurb;
+  let source = data.properties.source;
+  let link = data.properties.link;
 
-
-  let storyPane = document.getElementById('stories');
-
-  // Create elements and populate with data from the parameters
+// Create elements and populate with data from the parameters
   let div = document.createElement('div');
   div.setAttribute('class', "story");
   div.setAttribute('id', title);
@@ -40,9 +41,6 @@ function createStory(metadata) {
 
   let storyTitle = document.createElement("h3");
 
-  // let storyAuthorAndDate = document.createElement("p");
-  // storyAuthorAndDate.textContent = "by " + author + " on " + publishDate;
-
   let storySourceAndDate = document.createElement("p");
   storySourceAndDate.textContent = source + " • " + publishDate;
 
@@ -50,60 +48,63 @@ function createStory(metadata) {
   storyBlurb.setAttribute('class', 'blurb');
   storyBlurb.textContent = blurb;
 
-  // Append the elements to the story div
+
+// Append the elements to the story div
+  let storyPane = document.getElementById('stories');
   storyPane.appendChild(div).appendChild(storyTitle).appendChild(storyLink);
   storyPane.appendChild(div).appendChild(storyBlurb);
-  // storyPane.appendChild(div).appendChild(storyAuthorAndDate);
   storyPane.appendChild(div).appendChild(storySourceAndDate);
 
+// When mouse hovers over the map pin, focus the story card
   marker.getElement().addEventListener('mouseenter', () => {
     let storyFocus = document.getElementById(title);
-    storyFocus.setAttribute('id', 'story-focus');
+    storyFocus.setAttribute('id', 'story-hover');
+    // marker.togglePopup()
+
+    // new mapboxgl.Marker({color:'#ffd5e5'})
+    // .setLngLat(data.geometry.coordinates)
+    // .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
+    //   .setHTML('<h3>' + data.properties.title + '</h3><p>' + data.properties.source + '</p>'))
+    // .addTo(map);
+
+    
   });
 
   marker.getElement().addEventListener('mouseleave', () => {
-    let storyFocus = document.getElementById('story-focus');
+    let storyFocus = document.getElementById('story-hover');
     storyFocus.setAttribute('id', title);
+    // marker.togglePopup()
   });
+
+  marker.getElement().addEventListener('click', () => {
+    console.log(marker._color)
+    marker._color = "#ff89b6"
+    console.log(marker._color)
+  })
 }
 
 
 // Load stories.geojson file from the data directory
 fetch('/news-map/data/stories.geojson')
   .then(response => response.json())
-
-  // From the json, create a marker based on the coordinates, place it on the map, and call createStory()
-  // create the story, place it in the stories pane
   .then(function(data) {
-
-
-    data.features.forEach(function(metadata) {
-
-      // let marker = new mapboxgl.Marker()
-      //   .setLngLat(metadata.geometry.coordinates)
-      //   // .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
-      //   // .setHTML('<h3>' + metadata.properties.title + '</h3><p>' + metadata.properties.blurb + '</p>'))
-      //   .addTo(map);
-   
-      // marker.setAttribute('id', )
-
-      
-      // let title = metadata.properties.title;
-      // let author = metadata.properties.author;
-      // let publishDate = metadata.properties.publish_date;
-      // let blurb = metadata.properties.blurb;
-      // let source = metadata.properties.source;
-      // let link = metadata.properties.link;
-
-      
-      createStory(metadata);
-
-      // marker.getElement().addEventListener('click', () => {
-      //   let storyPane = document.getElementById('story');
-      //   storyPane.setAttribute('class', 'story-focus');
-      // });
-
-
+    data.features.forEach(function(data) {
+      createStory(data);
     });
     console.log("End of promise block");
   })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
