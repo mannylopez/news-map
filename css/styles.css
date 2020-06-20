@@ -27,6 +27,7 @@ html, body {
   transition: 0.3s;
 }
 
+/*This does nothing right now*/
 #story-focus {
   padding: 10px;
   box-shadow: 0 4px 1px 0 rgba(0,0,0,0.2);
@@ -36,6 +37,8 @@ html, body {
 
 #story-hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  /*background-color: red;*/
+  border: solid;
 }
 
 .story:hover {
@@ -56,7 +59,7 @@ a:hover {
 }
 
 .mapboxgl-marker {
-  
+  fill: red;
 }
 
 .mapboxgl-popup {
