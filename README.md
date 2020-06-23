@@ -37,7 +37,7 @@ Ended up not defining a binding. Used `forEach` to add the coordinates to the ma
 ![2020.06.12-Markers-on-map](./img/2020.06.12-Markers-on-map.png)
 
 #### June 13, 2020
-The stories and markers now populate from the JSON file. The `createStory` function first adds a marker to the map based off of the coordinates then creates a div element and sets the values for the story fields. Last, it adds the story to the side panel.
+The stories and pins now populate from the JSON file. The `createStory` function first adds a pin to the map based off of the coordinates then creates a div element and sets the values for the story fields. Last, it adds the story to the side panel.
 ![2020.06.13-Stories](./img/2020.06.13-Stories.png)
 
 #### June 14, 2020
@@ -45,5 +45,13 @@ Updated the design of the story cards and made it so that you can scroll through
 ![2020.06.14-Pretty-Story](./img/2020.06.14-Pretty-Story.png)
 
 #### June 15, 2020
-Moved marker create back into the function where each story is being created. Added an event listener for mouse enter and mouse leave so that the story is highlighted.
+Redesigned the structure of the code. Moved pin create step back into the function where each story is being created. Added an event listener to each pin for mouseenter and mouseleave so that the corresponding story is highlighted.
 ![2020.06.15-Hover.png](./img/2020.06.15-Hover.png)
+
+#### June 23, 2020
+Lots of work between now and then.
+
+- The pin turns black when the story is selected
+- A popup is tied to each pin that includes a link to the news story
+- The story has a subtle indicator when the user hovers over the map pin
+![2020.06.23-Popup-Story-Hightlight.png](./img/2020.06.23-Popup-Story-Hightlight.png)

@@ -17,10 +17,6 @@ function createStory(data) {
     .setHTML('<h3><a href="'+ data.properties.link + '" target="_blank">' + data.properties.title + '</h3><p>' + data.properties.source + ' • ' + data.properties.publish_date + '</p></a>'))
     .addTo(map);
 
-  // ??? How do I add a class name to the popup
-  // let popup = new mapboxgl.Popup()
-  // popup.addClassName('some-class')
-
 // Create a story card
 
   // Destructuring
@@ -54,86 +50,30 @@ function createStory(data) {
   storyPane.appendChild(storyDiv).appendChild(storyBlurb);
   storyPane.appendChild(storyDiv).appendChild(storySourceAndDate);
 
-// When mouse hovers over the map pin, focus the story card
- 
+// When mouse hovers over the map pin, focus the story card 
   marker.getElement().addEventListener('mouseenter', () => {
-
-
     let storyFocus = document.getElementById(title);
     storyFocus.setAttribute('id', 'story-hover');
-
-    // marker.togglePopup()
-
-    // marker.remove()
-    
-    // new mapboxgl.Marker({color:'#ffd5e5'})
-    //   .setLngLat(data.geometry.coordinates)
-    //   // .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
-    //   //   .setHTML('<h3>' + data.properties.title + '</h3><p>' + data.properties.source + '</p>'))
-    //   .addTo(map);
-    
-    // marker.togglePopup()
-    
-    // event.target.style.color = 'pink';
   });
 
 
   marker.getElement().addEventListener('mouseleave', () => {
     let storyFocus = document.getElementById('story-hover');
     storyFocus.setAttribute('id', title);
-    // marker.togglePopup()
-    // marker.togglePopup()
-
-    // marker.remove()
-
-    // marker = new mapboxgl.Marker({color:'#f5b7b1'})
-    // .setLngLat(data.geometry.coordinates)
-    // .setPopup(new mapboxgl.Popup({ offset: 25 }) // add popups
-    //   .setHTML('<h3>' + data.properties.title + '</h3><p>' + data.properties.source + '</p>'))
-    // .addTo(map);
-
   });
 
   storyDiv.addEventListener('mouseenter', () => {
-    // let abc = document.getElementById(title + ' marker');
-    
-    // console.log(marker.getElement())
-    // marker.getElement().querySelector('g').querySelector('g').setAttribute('class', 'red')
-    // console.log(marker.getElement().querySelector('g').querySelector('g'))
-    // console.log(marker.getElement().querySelector('g'))
-    // console.log(marker.getElement().querySelector('g'[0]))
-    // console.log(marker.getElement().querySelector('g'[1]))
-    // console.log(marker.getElement().querySelector('g'[2]))
-
-    // console.log(marker.getElementByTagName('g'))
-    // console.log(marker.getElement().getElementsByTagName("g")[2])
     marker.getElement().getElementsByTagName("g")[2].setAttribute('fill', 'black')
-
   })
 
   storyDiv.addEventListener('mouseleave', () => {
-    // let abc = document.getElementById(title + ' marker');
-    
-    // console.log(marker.getElement())
-    // marker.getElement().querySelector('g').querySelector('g').setAttribute('class', 'red')
-    // console.log(marker.getElement().querySelector('g').querySelector('g'))
-    // console.log(marker.getElement().querySelector('g'))
-    // console.log(marker.getElement().querySelector('g'[0]))
-    // console.log(marker.getElement().querySelector('g'[1]))
-    // console.log(marker.getElement().querySelector('g'[2]))
-
-    // console.log(marker.getElementByTagName('g'))
-    // console.log(marker.getElement().getElementsByTagName("g")[2])
     marker.getElement().getElementsByTagName("g")[2].setAttribute('fill', '#3FB1CE')
-
   })
 
   marker.getElement().addEventListener('click', () => {
-    
 
   })
-}
-
+};
 
 // Load stories.geojson file from the data directory
 fetch('/news-map/data/stories.geojson')
@@ -144,18 +84,3 @@ fetch('/news-map/data/stories.geojson')
     });
     console.log("End of promise block");
   })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
