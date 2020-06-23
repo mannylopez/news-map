@@ -34,12 +34,12 @@ function createStory(data) {
 
   let storyTitle = document.createElement("h3");
 
-  let storySourceAndDate = document.createElement("p");
-  storySourceAndDate.textContent = source + " • " + publish_date;
-
   let storyBlurb = document.createElement("p");
   storyBlurb.setAttribute('class', 'blurb');
   storyBlurb.textContent = blurb;
+
+  let storySourceAndDate = document.createElement("p");
+  storySourceAndDate.textContent = source + " • " + publish_date;
 
 // Add id to marker  
   // marker.getElement().setAttribute('id', title + " marker")
@@ -70,9 +70,18 @@ function createStory(data) {
     marker.getElement().getElementsByTagName("g")[2].setAttribute('fill', '#3FB1CE')
   })
 
+  storyDiv.addEventListener('click', () => {
+    map.flyTo({
+      center: data.geometry.coordinates,
+      zoom: 14,
+      speed: .8,
+      essential: true // this animation is considered essential with respect to prefers-reduced-motion
+    });
+  })  
+
   marker.getElement().addEventListener('click', () => {
 
-  })
+  });
 };
 
 // Load stories.geojson file from the data directory
