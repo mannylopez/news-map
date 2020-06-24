@@ -19,7 +19,10 @@ News stories, geo-tagged and displayed on a map
 - [ ] Figure out how to do this automatically every day, from different news sources
 - [ ] Working site for Portland, then try to do it for other locations
 - [ ] Add geocoder to map
-- [x] Mobile friendly design
+- [ ] Mobile friendly design
+  - [x] 60% map/40% story
+  - [ ] Stories scroll horizontally
+  - [ ] Hide the blurb
 - [ ] Tests
 
 #### June 06, 2020
