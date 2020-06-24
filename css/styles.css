@@ -19,6 +19,7 @@
   .stories {
     /*background-color: #ffd5e5;*/ /*red*/
     height: 40%;
+    display: flex;
     overflow-y: scroll;
   }
 
@@ -49,6 +50,7 @@
   }
 
   .blurb {
+    display: none;
     color: #555;
   }
 
