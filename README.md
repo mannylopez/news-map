@@ -12,14 +12,14 @@ News stories, geo-tagged and displayed on a map
 - [x] Add pins to map
 - [x] Add stories to page
 - [x] Design story card
-- [ ] Connect stories to pins
-    - [ ] Click on pin and highlight the story
-    - [ ] Click the story and center the map on the pin
+- [x] Connect stories to pins
+    - [x] Click on pin and highlight the story
+    - [x] Click the story and center the map on the pin
 - [ ] Figure out how to get news stories and add location
 - [ ] Figure out how to do this automatically every day, from different news sources
 - [ ] Working site for Portland, then try to do it for other locations
 - [ ] Add geocoder to map
-- [ ] Mobile friendly design
+- [x] Mobile friendly design
 - [ ] Tests
 
 #### June 06, 2020
@@ -55,3 +55,7 @@ Lots of work between now and then.
 - A popup is tied to each pin that includes a link to the news story
 - The story has a subtle indicator when the user hovers over the map pin
 ![2020.06.23-Popup-Story-Hightlight.png](./img/2020.06.23-Popup-Story-Hightlight.png)
+
+#### June 24, 2020
+Mobile media query added so that it looks okay on smaller screens.
+![2020.06.23-Mobile.png](./img/2020.06.23-Mobile.png)

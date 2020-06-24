@@ -13,7 +13,7 @@ function createStory(data) {
   // Add marker to the map
   let marker = new mapboxgl.Marker()
     .setLngLat(data.geometry.coordinates)
-    .setPopup(new mapboxgl.Popup({ offset: 25, closeButton: false, closeOnMove: true }) // add popups
+    .setPopup(new mapboxgl.Popup({ offset: 25, closeButton: false}) // add popups
     .setHTML('<h3><a href="'+ data.properties.link + '" target="_blank">' + data.properties.title + '</h3><p>' + data.properties.source + ' • ' + data.properties.publish_date + '</p></a>'))
     .addTo(map);
 
