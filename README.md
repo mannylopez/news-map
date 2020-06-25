@@ -19,10 +19,10 @@ News stories, geo-tagged and displayed on a map
 - [ ] Figure out how to do this automatically every day, from different news sources
 - [ ] Working site for Portland, then try to do it for other locations
 - [ ] Add geocoder to map
-- [ ] Mobile friendly design
+- [x] Mobile friendly design
   - [x] 60% map/40% story
-  - [ ] Stories scroll horizontally
-  - [ ] Hide the blurb
+  - [x] Stories scroll horizontally
+  - [x] Hide the blurb
 - [ ] Tests
 
 #### June 06, 2020
@@ -59,6 +59,11 @@ Lots of work between now and then.
 - The story has a subtle indicator when the user hovers over the map pin
 ![2020.06.23-Popup-Story-Hightlight.png](./img/2020.06.23-Popup-Story-Hightlight.png)
 
-#### June 24, 2020
+#### June 23, 2020
 Mobile media query added so that it looks okay on smaller screens.
 ![2020.06.23-Mobile.png](./img/2020.06.23-Mobile.png)
+
+#### June 24, 2020
+Stories in mobile view scroll sideways
+
+![2020.06.24-Mobile-Side-Scroll.png](./img/2020.06.24-Mobile-Side-Scroll.png)
