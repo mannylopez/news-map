@@ -97,12 +97,20 @@ axios.get('https://api.nytimes.com/svc/topstories/v2/home.json?api-key=lzxwltdnA
   })
 
 
+
+
 // Takes JSON in, adds a marker to the map, creates a story card, and inserts it into the stories div side panel
 function createStory(data) {
 
 // Create a story card
-  // Destructuring
-  const { title, url, abstract, published_date, source, byline } = data;
+  const { title, url, abstract, published_date, source, byline, section } = data;
+
+  // if (section === "opinion") {
+  //   console.log("The title is "+ title)
+  //   let storyOpinion = document.createElement("p");
+  //   storyOpinion.textContent = section;
+  //   storyPane.appendChild(storyOpinion)
+  // }
 
 // Create elements and populate with data from the parameters
   let storyDiv = document.createElement('div');
@@ -129,9 +137,18 @@ function createStory(data) {
 
 // Append the elements to the story div
   let storyPane = document.getElementById('stories');
+
+  // Adds opinion text if the article is an opinion piece
+  if (section === "opinion") {
+    let storyOpinion = document.createElement("p");
+    storyOpinion.textContent = "Opinion";
+    storyPane.appendChild(storyDiv).appendChild(storyOpinion)
+  }
+
   storyPane.appendChild(storyDiv).appendChild(storyTitle).appendChild(storyLink);
   storyPane.appendChild(storyDiv).appendChild(storyBlurb);
   storyPane.appendChild(storyDiv).appendChild(storySourceAndDate);
+
 
 // Create marker for each data coordinate in the data and marker interaction
   data.coordinates.forEach(function(point) {
