@@ -105,12 +105,9 @@ function createStory(data) {
 // Create a story card
   const { title, url, abstract, published_date, source, byline, section } = data;
 
-  // if (section === "opinion") {
-  //   console.log("The title is "+ title)
-  //   let storyOpinion = document.createElement("p");
-  //   storyOpinion.textContent = section;
-  //   storyPane.appendChild(storyOpinion)
-  // }
+  // Remove time and return only YYYY-MM-DD
+  let truncatedDate = published_date
+  truncatedDate = truncatedDate.substring(0,10)
 
 // Create elements and populate with data from the parameters
   let storyDiv = document.createElement('div');
@@ -129,7 +126,7 @@ function createStory(data) {
   storyBlurb.textContent = abstract;
 
   let storySourceAndDate = document.createElement("p");
-  storySourceAndDate.textContent = source + " • " + published_date;
+  storySourceAndDate.textContent = source + " • " + truncatedDate;
 
 
 // Add id to marker  
@@ -157,7 +154,7 @@ function createStory(data) {
     let marker = new mapboxgl.Marker()
       .setLngLat(point)
       .setPopup(new mapboxgl.Popup({ offset: 25, closeButton: false}) // add popups
-      .setHTML('<h3><a href="'+ data.url + '" target="_blank">' + data.title + '</h3><p>' + source + ' • ' + data.published_date + '</p></a>'))
+      .setHTML('<h3><a href="'+ url + '" target="_blank">' + title + '</h3><p>' + source + ' • ' + truncatedDate + '</p></a>'))
       .addTo(map);
 
     // When mouse hovers over the map pin, focus the story card 
