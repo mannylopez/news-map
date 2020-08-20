@@ -1,6 +1,6 @@
 # News map
 
-A map that shows news stories around me. 
+A map that shows news stories around me.
 
 News stories, geo-tagged and displayed on a map
 
@@ -67,3 +67,6 @@ Mobile media query added so that it looks okay on smaller screens.
 Stories in mobile view scroll sideways
 
 ![2020.06.24-Mobile-Side-Scroll.png](./img/2020.06.24-Mobile-Side-Scroll.png)
+
+#### Final
+Website requests the day's top stories from the New York Times API, creates an array with the stories that include a location name, and then requests the latitude and longitude from the Mapbox geocoding API. The JSON file is then used to create the story cards and map pins for an always up-to-date map of the top New York Times stories of the day.
