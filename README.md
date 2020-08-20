@@ -1,6 +1,6 @@
 # News map
 
-A map that shows news stories around me. 
+A map that shows news stories around me.
 
 News stories, geo-tagged and displayed on a map
 
@@ -64,6 +64,6 @@ Mobile media query added so that it looks okay on smaller screens.
 ![2020.06.23-Mobile.png](./img/2020.06.23-Mobile.png)
 
 #### June 24, 2020
-Stories in mobile view scroll sideways
+Stories in mobile view scroll sideways.
 
 ![2020.06.24-Mobile-Side-Scroll.png](./img/2020.06.24-Mobile-Side-Scroll.png)
