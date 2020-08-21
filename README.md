@@ -1,8 +1,6 @@
 # News map
 
-A map that shows news stories around me.
-
-The top stories from the New York Times, geo-tagged and displayed on a map.
+Front page stories from the New York Times, geo-tagged and displayed on a map.
 
 ### To do
 - [x] Create layout
