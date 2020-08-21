@@ -2,7 +2,7 @@
 
 A map that shows news stories around me.
 
-News stories, geo-tagged and displayed on a map
+News stories, geo-tagged and displayed on a map.
 
 ### To do
 - [x] Create layout
