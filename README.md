@@ -1,6 +1,6 @@
 # News map
 
-Front page stories from the New York Times, geo-tagged and displayed on a map.
+#### Front page stories from the New York Times, geo-tagged and displayed on a map.
 
 ### To do
 - [x] Create layout
