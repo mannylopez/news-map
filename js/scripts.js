@@ -17,7 +17,7 @@ axios.get('https://api.nytimes.com/svc/topstories/v2/home.json?api-key=lzxwltdnA
   }, (error) => {
     console.log(error);
   })
-  
+
   // Returns only the stories that have anything in the geo_facet array. Returns an array of story objects with text geo locations.
   .then(function(data) {
     let arrayWithGeo = []
@@ -31,29 +31,29 @@ axios.get('https://api.nytimes.com/svc/topstories/v2/home.json?api-key=lzxwltdnA
     return arrayWithGeo
   })
 
-  // Extract location from geo_facet, 
+  // Extract location from geo_facet,
   .then(async function(data) {
     let arrayWithCoordinates = []
     // console.log("1. Empty arrayWithCoordinates created")
 
     for (let entry of data) {
       // console.log("2. Isolate one story object")
-      
+
       // Add coordinates property and empty array to every story
       entry.coordinates = []
       entry.source = "The New York Times"
 
       let location = entry.geo_facet
-      
+
       async function getMapboxResults() {
         for (let place of location) {
           console.log(place)
           // console.log("4. Iterate over a place from the geo_facet array")
-          
+
           locationNoSpace = place.replace(/\s/g, '+')
           // console.log(locationNoSpace)
           // console.log("5. Replace the space with a +")
-          
+
           let request = "https://api.mapbox.com/geocoding/v5/mapbox.places/" + locationNoSpace + ".json?access_token=pk.eyJ1IjoibWFubnkiLCJhIjoiY2tjdTNhcW1mMHkzYzJ4cDcxMjE3N2J5cCJ9.N01v6yRINwTuPEqwUzW-gw"
 
           // console.log("6. Create the mapbox request URL")
@@ -61,7 +61,7 @@ axios.get('https://api.nytimes.com/svc/topstories/v2/home.json?api-key=lzxwltdnA
 
           await axios.get(request)
           .then((response) => {
-            
+
             // console.log("7. Get mapbox API results for " + response.data.features[0].text)
 
             let centerArray = entry.coordinates
@@ -69,10 +69,13 @@ axios.get('https://api.nytimes.com/svc/topstories/v2/home.json?api-key=lzxwltdnA
 
             centerArray.push(response.data.features[0].center)
             // console.log("8. Push center coordinates to story " + response.data.features[0].text)
-            
+
+          })
+          .catch(error => {
+            console.log(error);
           });
 
-        } 
+        }
         // console.log(data)
       }
 
@@ -81,12 +84,12 @@ axios.get('https://api.nytimes.com/svc/topstories/v2/home.json?api-key=lzxwltdnA
     }
     // console.log(arrayWithCoordinates)
     return data
-    
-    
+
+
   })
 
   .then(function(data) {
-    console.log("the length is " + data.length) 
+    console.log("the length is " + data.length)
     data.forEach(function(data) {
       // console.log(data)
       // console.log(data.coordinates)
@@ -129,7 +132,7 @@ function createStory(data) {
   storySourceAndDate.textContent = source + " • " + truncatedDate;
 
 
-// Add id to marker  
+// Add id to marker
   // marker.getElement().setAttribute('id', title + " marker")
 
 // Append the elements to the story div
@@ -157,7 +160,7 @@ function createStory(data) {
       .setHTML('<h3><a href="'+ url + '" target="_blank">' + title + '</h3><p>' + source + ' • ' + truncatedDate + '</p></a>'))
       .addTo(map);
 
-    // When mouse hovers over the map pin, focus the story card 
+    // When mouse hovers over the map pin, focus the story card
     marker.getElement().addEventListener('mouseenter', () => {
       let storyFocus = document.getElementById(title);
       storyFocus.setAttribute('id', 'story-hover');
@@ -184,12 +187,12 @@ function createStory(data) {
         speed: .8,
         essential: true // this animation is considered essential with respect to prefers-reduced-motion
       });
-    })  
+    })
 
     marker.getElement().addEventListener('click', () => {
       console.log(data.geo_facet)
     });
-  
+
   });
 
 };
