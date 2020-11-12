@@ -22,6 +22,7 @@
   - [x] Stories scroll horizontally
   - [x] Hide the blurb
 - [ ] Tests
+- [x] Test branch
 
 #### June 06, 2020
 ![Page outline view](./img/2020.06.06-Page-outline.png)
