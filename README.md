@@ -15,7 +15,7 @@
     - [x] Click the story and center the map on the pin
 - [ ] Figure out how to get news stories and add location
 - [ ] Figure out how to do this automatically every day, from different news sources
-- [x] Working site for Portland, then try to do it for other locations
+- [ ] Working site for Portland, then try to do it for other locations
 - [ ] Add geocoder to map
 - [x] Mobile friendly design
   - [x] 60% map/40% story
