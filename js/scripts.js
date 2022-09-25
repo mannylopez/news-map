@@ -197,8 +197,6 @@ var map = new mapboxgl.Map({
 // };
 
 
-let nytUrl = "https://api.nytimes.com/svc/topstories/v2/home.json?api-key=lzxwltdnApRAJYBeqX86gAEOOcWk6Fgn";
-
 async function makeNetworkRequest(url) {
   try {
     return await axios.get(url)
@@ -211,13 +209,26 @@ async function makeMap() {
 
   await map.on('load', async function() {
 
+    // Make NYT network request for top stories
+    let nytUrl = "https://api.nytimes.com/svc/topstories/v2/home.json?api-key=lzxwltdnApRAJYBeqX86gAEOOcWk6Fgn";
     const nytFullResponse = await makeNetworkRequest(nytUrl);
-    let nytStories = nytFullResponse.data.results
+    let nytStories = nytFullResponse.data.results.filter(result => result.geo_facet.length >= 1)
 
-    const storiesWithGeo = nytStories.filter(result => result.geo_facet.length >= 1)
+    // For every story with [geo], get the latitude and latitude coordinates
+    await geocodeLocations(nytStories)
+    console.log(nytStories)
 
-  // for every story with [geo], get the coordinates
-  for (const story of storiesWithGeo) {
+    // Create GeoJSON data model and configure the map
+    let pointGeoJsonDataModel = createPointGeoJson(nytStories)
+    
+    configureMap(pointGeoJsonDataModel)
+    createStoryCards(pointGeoJsonDataModel)
+  })
+}
+
+async function geocodeLocations(stories) {
+  console.log("inside geocodeLocations()")
+  for (const story of stories) {
     story.coordinates = []
     story.source = "The New York Times"
     let geoFacets = story.geo_facet
@@ -225,86 +236,12 @@ async function makeMap() {
     for (const location of geoFacets) {
       const locationWithNoSpaces = location.replace(/\s/g, '+')
       const mapboxGeocodingUrl = "https://api.mapbox.com/geocoding/v5/mapbox.places/" + locationWithNoSpaces + ".json?access_token=pk.eyJ1IjoibWFubnkiLCJhIjoiY2tjdTNhcW1mMHkzYzJ4cDcxMjE3N2J5cCJ9.N01v6yRINwTuPEqwUzW-gw"
+      console.log(mapboxGeocodingUrl)
       const geocodedLocation = await makeNetworkRequest(mapboxGeocodingUrl)
       story.coordinates.push(geocodedLocation.data.features[0].center)
     }
-  }
-
-    console.log(storiesWithGeo)
-    
-    console.log("in map.on load")
-
-    let pointGeoJsonDataModel = createPointGeoJson(storiesWithGeo)
-
-    map.addSource('storiesWithGeo', {
-      type: 'geojson',
-      data: pointGeoJsonDataModel,
-      cluster: false,
-      clusterMaxZoom: 14, // Max zoom to cluster points on
-      clusterRadius: 50 // Radius of each cluster when clustering points (defaults to 50)
-    });
-
-    map.addLayer({
-      'id': 'points',
-      'type': 'circle',
-      'source': 'storiesWithGeo',
-      'layout': {
-          // 'icon-image': 'marker-15',
-          // 'icon-rotate': ['get', 'true_track'],
-          // 'icon-allow-overlap': true
-        },
-        'paint': {
-          'circle-color': '#4264fb',
-          'circle-radius': 6,
-          'circle-stroke-width': 2,
-          'circle-stroke-color': '#ffffff'
-        }
-      })
-
-    map.on('click', 'points', function(e) {
-      let coordinates = e.features[0].geometry.coordinates
-      console.log(coordinates)
-      let description = `<b>${e.features[0].properties.title}</b>
-      </br>
-      ${e.features[0].properties.locations}
-      </br>
-      `
-      console.log(e.features[0].properties)
-
-      new mapboxgl.Popup({closeButton: false})
-      .setLngLat(coordinates)
-      .setHTML(description)
-      .addTo(map);
-    })
-  })
+  }  
 }
-
-// async function addLayer(data) {
-//   console.log("inside addLayer")
-//   await map.on('load'), (data) => {
-//     // create point geojson
-//     console.log("before createPointGeoJson(data)")
-//     let pointGeoJson = createPointGeoJson(data)
-//     console.log("after createPointGeoJson(data)")
-
-//     map.addLayer({
-//       'id': 'points',
-//       'type': 'symbol',
-//       'source': {
-//         'type': 'geojson',
-//         'data': pointGeoJSON
-//       },
-//       'layout': {
-//         'icon-image': 'airport-15',
-//         'icon-rotate': ['get', 'true_track'],
-//         'icon-allow-overlap': true
-//       }
-//     })
-
-
-//   }
-
-// }
 
 function createPointGeoJson(data) {
   const geojson = {
@@ -318,8 +255,13 @@ function createPointGeoJson(data) {
         id: story.url,
         type: "Feature",
         properties: {
+          section: story.section,
           title: story.title,
           abstract: story.abstract,
+          url: story.url,
+          byline: story.byline,
+          publishedDate: story.published_date,
+          source: story.source,
           locations: story.geo_facet
         },
         geometry: {
@@ -336,6 +278,91 @@ function createPointGeoJson(data) {
   return geojson;
 }
 
+function configureMap(dataModel) {
+  map.addSource('storiesWithGeo', {
+    type: 'geojson',
+    data: dataModel,
+    cluster: false,
+      clusterMaxZoom: 14, // Max zoom to cluster points on
+      clusterRadius: 50 // Radius of each cluster when clustering points (defaults to 50)
+    });
+
+  map.addLayer({
+    'id': 'points',
+    'type': 'circle',
+    'source': 'storiesWithGeo',
+    'layout': {
+      // 'icon-image': 'marker-15',
+      // 'icon-rotate': ['get', 'true_track'],
+      // 'icon-allow-overlap': true
+    },
+    'paint': {
+      'circle-color': '#4264fb',
+      'circle-radius': 6,
+      'circle-stroke-width': 2,
+      'circle-stroke-color': '#ffffff'
+    }
+  })
+
+  map.on('click', 'points', function(e) {
+    let coordinates = e.features[0].geometry.coordinates
+    console.log(coordinates)
+    let description = `<b>${e.features[0].properties.title}</b>
+    </br>
+    ${e.features[0].properties.locations}
+    </br>
+    `
+    console.log(e.features[0].properties)
+
+    new mapboxgl.Popup({closeButton: false})
+    .setLngLat(coordinates)
+    .setHTML(description)
+    .addTo(map);
+  })
+
+}
+
+function createStoryCards(data) {
+  data.features.forEach(function(feature) {
+    console.log(feature)
+    const { id, properties, geometry} = feature
+    console.log(id)
+    
+    const truncatedDate = properties.publishedDate.substring(0,10)
+    
+    let storyDiv = document.createElement('div');
+    storyDiv.setAttribute('class', "story");
+    storyDiv.setAttribute('id', properties.title);
+
+    let storyLink = document.createElement("a");
+    storyLink.setAttribute('href', properties.url);
+    storyLink.setAttribute('target', "_blank");
+    storyLink.textContent = properties.title;
+
+    let storyTitle = document.createElement("h3");
+
+    let storyBlurb = document.createElement("p");
+    storyBlurb.setAttribute('class', 'blurb');
+    storyBlurb.textContent = properties.abstract;
+
+    let storySourceAndDate = document.createElement("p");
+    storySourceAndDate.textContent = properties.source + " • " + truncatedDate;
+
+      // Append the elements to the story div
+    let storyPane = document.getElementById('stories');
+
+    // Adds opinion text if the article is an opinion piece
+    if (properties.section === "opinion") {
+      let storyOpinion = document.createElement("p");
+      storyOpinion.textContent = "Opinion";
+      storyPane.appendChild(storyDiv).appendChild(storyOpinion)
+    }
+
+    storyPane.appendChild(storyDiv).appendChild(storyTitle).appendChild(storyLink);
+    storyPane.appendChild(storyDiv).appendChild(storyBlurb);
+    storyPane.appendChild(storyDiv).appendChild(storySourceAndDate);
+  })
+}
 
 makeMap()
 
